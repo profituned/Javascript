@@ -1,0 +1,450 @@
+<section class="multi-slider">
+  <div class="page-width">
+    {% if section.settings.show_stars %}
+      <div class="stars-sec">
+        <svg
+          class="icon icon-review-star block h-auto"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L6.08 6.26805H0L4.96 9.8969L3.04 16L8 12.2062L12.96 16L11.04 9.8969L16 6.26805H9.92L8 0Z" fill="#000000"></path>
+        </svg>
+
+        <svg
+          class="icon icon-review-star block h-auto"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L6.08 6.26805H0L4.96 9.8969L3.04 16L8 12.2062L12.96 16L11.04 9.8969L16 6.26805H9.92L8 0Z" fill="#000000"></path>
+        </svg>
+
+        <svg
+          class="icon icon-review-star block h-auto"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L6.08 6.26805H0L4.96 9.8969L3.04 16L8 12.2062L12.96 16L11.04 9.8969L16 6.26805H9.92L8 0Z" fill="#000000"></path>
+        </svg>
+
+        <svg
+          class="icon icon-review-star block h-auto"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L6.08 6.26805H0L4.96 9.8969L3.04 16L8 12.2062L12.96 16L11.04 9.8969L16 6.26805H9.92L8 0Z" fill="#000000"></path>
+        </svg>
+
+        <svg
+          class="icon icon-review-star block h-auto"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L6.08 6.26805H0L4.96 9.8969L3.04 16L8 12.2062L12.96 16L11.04 9.8969L16 6.26805H9.92L8 0Z" fill="#000000"></path>
+        </svg>
+      </div>
+    {% endif %}
+    <div class="heading-container-video-carousel">
+      {% if section.settings.heading != blank %}
+        <h2 class="dynamic-richtext">{{ section.settings.heading }}</h2>
+      {% endif %}
+    </div>
+    <div id="splide-{{ section.id }}" class="splide arrows-style1">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {% for block in section.blocks %}
+            <li class="splide__slide">
+              {% if block.settings.video_url != blank %}
+                <div class="video-box">
+                  <div class="videos-block">
+                    <video
+                      class="video-element"
+                      preload="auto"
+                      autoplay
+                      muted
+                      {% if block.settings.poster_image %}
+                        poster="{{ block.settings.poster_image | img_url: 'master' }}"
+                      {% endif %}
+                      loop
+                    >
+                      <source src="{{ block.settings.video_url }}" type="video/mp4">
+                    </video>
+                  </div>
+                  <span class="video-title">{{ block.settings.Video_title }}</span>
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev">
+          <!-- SVG for left arrow -->
+          <svg
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+            stroke-linejoin="round"
+            stroke-miterlimit="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="m9.474 5.209s-4.501 4.505-6.254 6.259c-.147.146-.22.338-.22.53s.073.384.22.53c1.752 1.754 6.252 6.257 6.252 6.257.145.145.336.217.527.217.191-.001.383-.074.53-.221.293-.293.294-.766.004-1.057l-4.976-4.976h14.692c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-14.692l4.978-4.979c.289-.289.287-.761-.006-1.054-.147-.147-.339-.221-.53-.221-.191-.001-.38.071-.525.215z" fill-rule="nonzero"/>
+          </svg>
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <!-- SVG for right arrow -->
+          <svg
+            clip-rule="evenodd"
+            fill-rule="evenodd"
+            stroke-linejoin="round"
+            stroke-miterlimit="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="m14.523 18.787s4.501-4.505 6.255-6.26c.146-.146.219-.338.219-.53s-.073-.383-.219-.53c-1.753-1.754-6.255-6.258-6.255-6.258-.144-.145-.334-.217-.524-.217-.193 0-.385.074-.532.221-.293.292-.295.766-.004 1.056l4.978 4.978h-14.692c-.414 0-.75.336-.75.75s.336.75.75.75h14.692l-4.979 4.979c-.289.289-.286.762.006 1.054.148.148.341.222.533.222.19 0 .378-.072.522-.215z" fill-rule="nonzero"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup container -->
+  <div id="videoPopup" class="video-popup">
+    <div class="video-popup-content">
+      <span class="video-popup-close">&times;</span>
+      <video id="popupVideo" controls>
+        <source id="popupVideoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<style>
+          #popupVideo::-webkit-media-controls {
+          display: none !important;
+        }
+
+
+
+          .video-popup {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+          }
+
+          .video-popup-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 50vh;
+            max-width: 800px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          .video-popup-close {
+              position: absolute;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              top: 2.5vh;
+              right: 2.5vw;
+              margin-top: 20px;
+              height: 35px;
+              width: 35px;
+              color: #fff;
+              background-color: #00000070;
+              border-radius: 20px;
+              font-size: 36px;
+              font-weight: bold;
+              cursor: pointer;
+            z-index: 2;
+          }
+
+          #popupVideo {
+            width: 100%;
+            border-radius: 10px;
+          }
+
+          /* Additional styles for the main section */
+          h2.dynamic-richtext {
+            font-family: Inter;
+            font-size: 48.98px;
+            font-weight: 700;
+            line-height: 73.92px;
+            text-align: center;
+            color: #000;
+            max-width: 80%;
+            margin: 0 auto;
+            margin-top: 22px;
+          }
+          .dynamic-richtext strong {
+            background:#fe5b38;
+            color:#fff;
+            padding: 6px;
+            border-radius: 9px;
+          }
+          .stars-sec {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:5px;
+          }
+          .videos-block {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+          }
+          .video-element {
+            width: 100%;
+            max-height: 70vh;
+                cursor: pointer;
+            object-fit: cover;
+            border-radius: 12px;
+          }
+
+    /* .video-element {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 9999;
+    }
+     */
+          span.video-title {
+            display: block;
+            color: #000;
+            text-align: center;
+          }
+          .arrows-style1 .splide__arrow--prev svg {
+            transform: scaleX(1)!important;
+          }
+          .multi-slider {
+            padding-top: 0px;
+            padding-bottom: 50px;
+          }
+          .multicolumn-number {
+            color: #7edaae;
+            margin-top: 2px;
+          }
+          .arrows-style1 .splide__arrows {
+            background: #f7f6f5;
+          }
+          .arrows-style1 .splide__arrow--prev, .arrows-style1 .splide__arrow--next  {
+            background: #fafbfc;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .multi-slider .dynamic-richtext p {
+          margin-top: 0!important;
+          }
+          @media screen and (max-width: 768px) {
+            .video-element {
+              max-height: 60vh;
+            }
+            h2.dynamic-richtext {
+              font-weight: 700;
+              font-size: 25px;
+              color: #000;
+              max-width: 90%;
+              margin: 0 auto;
+              text-align: center;
+              margin-top: 22px;
+              line-height: 43px;
+            }
+            span.reviews_block p {
+              font-size: 14px;
+            }
+            /* .video-popup-content {
+              width: 100%;
+          } */
+            .video-popup-close {
+              top: 2vh;
+              right: 4vh;
+          }
+          video {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+  .video-element {
+            width: 100%;
+            max-height: 100vh;
+                cursor: pointer;
+            object-fit: cover;
+            border-radius: 12px;
+          }
+            .video-popup-content {
+              padding: 0!important;
+            }
+          .video-popup-content {
+            top: 0;
+             transform: translateY(0);
+          }
+          }
+          @media screen and (max-width: 500px) {
+            h2.dynamic-richtext {
+              font-weight: 700;
+              font-size: 23.4px;
+              color: #000;
+              max-width: 100%;
+              margin: 0 auto;
+              text-align: center;
+              margin-top: 5px;
+              line-height: 32.76px;
+            }
+            h2.dynamic-richtext p {
+              margin-top: 5px;
+            }
+          }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const videos = document.querySelectorAll('.video-element');
+    const popup = document.getElementById('videoPopup');
+    const popupVideo = document.getElementById('popupVideo');
+    const popupVideoSource = document.getElementById('popupVideoSource');
+    const closePopup = document.querySelector('.video-popup-close');
+
+    videos.forEach(function(video) {
+      video.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent the video from playing in its original location
+        popupVideo.pause(); // Ensure the video is paused before changing the source
+        popupVideoSource.src = video.querySelector('source').src;
+        popupVideo.load(); // Load the video
+        popup.style.display = 'block'; // Show the modal
+        popupVideo.muted = false; // Ensure the sound is on
+        popupVideo.play(); // Play the video automatically within the modal
+      });
+    });
+
+    closePopup.addEventListener('click', function() {
+      popup.style.display = 'none';
+      popupVideo.pause(); // Pause the video when closing the modal
+    });
+
+    // Close the popup when clicking outside the video content
+    window.addEventListener('click', function(event) {
+      if (event.target === popup) {
+        popup.style.display = 'none';
+        popupVideo.pause(); // Pause the video when clicking outside
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var splide = new Splide('#splide-{{ section.id }}', {
+      perPage: 4,
+      perMove: 1,
+      arrows: true,
+      pagination: false,
+      loop: false,
+      gap: '20px',
+      focus: 'center', // Add this line to ensure the slides are centered
+      breakpoints: {
+        990: {
+          perPage: 2,
+          focus: 0 // Reset focus for smaller screens
+        },
+        750: {
+          perPage: 2.5,
+          gap: '10px',
+          focus: 0 // Reset focus for smaller screens
+        },
+        550: {
+          perPage: 1.2,
+          gap: '10px',
+          focus: 0 // Reset focus for smaller screens
+        }
+      }
+    }).mount();
+  });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var videos = document.querySelectorAll('video');
+    videos.forEach(function(video) {
+      video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Video Slider",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show Stars",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Heading text here</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+       {
+         "type": "url",
+         "id": "video_url",
+         "label": "Video URL"
+       },
+        {
+          "type": "text",
+          "id": "Video_title",
+          "label": "Video Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster_image",
+          "label": "Poster Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
